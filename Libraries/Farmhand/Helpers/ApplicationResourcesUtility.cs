@@ -14,17 +14,27 @@ using xTile.Format;
 
 namespace Farmhand.Helpers
 {
-    internal class ApplicationResourcesUtility
+    public class ApplicationResourcesUtility
     {
+        public static IEnumerable<string> GetInternalResourceNames()
+        {
+            return System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames();
+        }
+
+        public static Stream LoadInternalResource(string file)
+        {
+            return System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream(file);
+        }
+
         [Hook(HookType.Entry, "StardewValley.Game1", "Initialize")]
         public static void LoadInternalApiManifests()
         {
             var test = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames();
 
-            var manifestRead = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames().Where(n => n.EndsWith(".manifest.json"));
+            var manifestRead = GetInternalResourceNames().Where(n => n.EndsWith(".manifest.json"));
             foreach (var file in manifestRead)
             {
-                using (var stream = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream(file))
+                using (var stream = LoadInternalResource(file))
                 {
                     if (stream == null) continue;
 
@@ -42,7 +52,7 @@ namespace Farmhand.Helpers
 
         public static Texture2D LoadTexture(string textureFile)
         {
-            using (var stream = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream(textureFile))
+            using (var stream = LoadInternalResource(textureFile))
             {
                 if (stream == null || Game1.graphics == null) return null;
                 

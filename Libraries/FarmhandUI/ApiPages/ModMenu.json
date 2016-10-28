@@ -1,0 +1,40 @@
+﻿{
+  "name": "ModMenu",
+  "type": "ClickableMenu",
+  "params": { 
+      "x": 0,
+      "y": 0,
+      "width": -1,
+      "height": -1
+  },
+  "children": [
+    {
+      "type": "ClickableTexture",
+      "params": {
+        "name": "upArrow",
+        "bounds": {
+          "X": "2",
+          "Y": "3",
+          "Width": "3",
+          "Height": "4"
+        },
+        "texture": "",
+        "textureSource": {
+          "X": "",
+          "Y": "",
+          "Width": "",
+          "Height": ""
+        },
+        "positioning": "Absolute",
+        "alignment": "Top, Right" ,
+        "drawShadow": false,
+        "scale": 0,
+        "onClick": "UpArrowClick",
+        "onClickRight": "UpArrowRightClick",
+        "onClickAway": "",
+        "onHover": "UpArrowHover",
+        "onScroll": ""
+      }
+    }
+  ]
+}

@@ -193,6 +193,7 @@
     <Compile Include="Helpers\ExtensionMethods.cs" />
     <Compile Include="Helpers\CompatibilityLayer.cs" />
     <Compile Include="Helpers\ApplicationResourcesUtility.cs" />
+    <Compile Include="Helpers\JsonConverters\RectangleConverter.cs" />
     <Compile Include="Helpers\MainRedirect.cs" />
     <Compile Include="Helpers\UniqueId.cs" />
     <Compile Include="Helpers\UniqueIdConverter.cs" />

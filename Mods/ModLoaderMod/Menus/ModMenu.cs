@@ -30,7 +30,7 @@ namespace ModLoaderMod.Menus
         private string hoverText;
 
         public ModMenu()
-          : base(Game1.viewport.Width / 2 - (1050 + borderWidth * 2) / 2, Game1.viewport.Height / 2 - (600 + borderWidth * 2) / 2, 800 + borderWidth * 2, 600 + borderWidth * 2)
+          : base(Game1.viewport.Width / 2 - (1050 + borderWidth * 2) / 2, Game1.viewport.Height / 2 - (600 + borderWidth * 2) / 2, 800 + borderWidth * 2, 600 + borderWidth * 2, true)
         {
             SetUpPositions();
             Game1.player.faceDirection(2);

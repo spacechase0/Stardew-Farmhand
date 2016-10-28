@@ -18,7 +18,7 @@ namespace ModLoaderMod
         
         public void OnAfterGameInitialise(object sender, EventArgsOnGameInitialised e)
         {
-            var test = ModRegistry.GetRegisteredItems();
+            /*var test = ModRegistry.GetRegisteredItems();
             var texture = ModSettings.GetTexture("icon_menuModsButton");
             
             Farmhand.UI.TitleMenu.RegisterNewTitleButton(new Farmhand.UI.TitleMenu.CustomTitleOption
@@ -27,7 +27,7 @@ namespace ModLoaderMod
                 Texture = texture,
                 TextureSourceRect = new Rectangle(222, 187, 74, 58),
                 OnClick = OnModMenuItemClicked
-            });
+            });*/
         }
 
         public void OnModMenuItemClicked(Farmhand.UI.TitleMenu menu, string choice)
