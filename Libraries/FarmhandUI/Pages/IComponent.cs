@@ -9,8 +9,6 @@ namespace Farmhand.UI.Pages
 {
     public interface IComponent
     {
-        string Type { get; }
-
         IEnumerable<IComponent> Children { get; }
 
         void AddChild(IComponent child);

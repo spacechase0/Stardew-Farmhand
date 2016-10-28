@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Farmhand.Attributes;
 using Farmhand.Registries.Containers;
 using Microsoft.Xna.Framework.Graphics;
@@ -24,6 +25,15 @@ namespace Farmhand.Helpers
         public static Stream LoadInternalResource(string file)
         {
             return System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream(file);
+        }
+
+        public static IEnumerable<Stream> LoadInternalResources(string pattern)
+        {
+            var manifests = GetInternalResourceNames().Where(n => Regex.IsMatch(n, pattern));
+            foreach (var manifest in manifests)
+            {
+                yield return System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream(manifest);
+            }
         }
 
         [Hook(HookType.Entry, "StardewValley.Game1", "Initialize")]

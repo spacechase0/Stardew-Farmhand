@@ -10,6 +10,7 @@ using Farmhand.UI.Pages.Components;
 using Newtonsoft.Json.Linq;
 using Farmhand.Helpers;
 using Farmhand.Registries;
+using Farmhand.UI.PageDefinitions.Controls;
 using Farmhand.UI.Pages.Controls;
 using Farmhand.UI.Pages.Parameters;
 using Farmhand.UI.Pages.Properties;
@@ -28,13 +29,16 @@ namespace Farmhand.UI.Pages
         [Hook(HookType.Exit, "StardewValley.Game1", "LoadContent")]
         public static void LoadInternalPages()
         {
-            PageTypeRegistry.RegisterItem(nameof(ClickableMenu), typeof(ClickableMenu));
-            PageTypeRegistry.RegisterItem(nameof(ClickableTexture), typeof(ClickableTexture));
-            PageTypeRegistry.RegisterItem(nameof(Label), typeof(Label));
-            PageParameterTypeRegistry.RegisterItem(nameof(ClickableMenu), typeof(ClickableMenuParameters));
-            PageParameterTypeRegistry.RegisterItem(nameof(ClickableTexture), typeof(ClickableTextureParameters));
-            PageParameterTypeRegistry.RegisterItem(nameof(Label), typeof(LabelParameters));
-            
+            foreach (var form in ApplicationResourcesUtility.LoadInternalResources("^\\s*.*\\.PageForm\\.json*\\s*$"))
+            {
+                using (var reader = new StreamReader(form))
+                {
+                    var manifestFile = reader.ReadToEnd();
+                    var component = JsonConvert.DeserializeObject<ComponentDefinition>(manifestFile);
+                }
+                form.Dispose();
+            }
+                
             using (var modMenu = ApplicationResourcesUtility.LoadInternalResource("Farmhand.UI.ApiPages.ModMenu.json"))
             {
                 Pages.Add(LoadComponentFromManifest(modMenu));
@@ -83,7 +87,7 @@ namespace Farmhand.UI.Pages
             var mainObj = JObject.Parse(manifestContents);
             var component = GatherComponentHierarchy(mainObj);
             if(component == null)
-                throw new Exception("Error loading componenet hierarchy. Return value is null");
+                throw new Exception("Error loading component hierarchy. Return value is null");
 
             var pageComponent = component as IPageComponent;
             if (pageComponent == null)
@@ -120,8 +124,8 @@ namespace Farmhand.UI.Pages
                 if (childJsonNode == null || !childJsonNode.Children().Any())
                     continue;
 
-                if(childJsonNode.GetType() != typeof(JArray))
-                    throw new Exception($"Property 'children' in object {component.Type} must be an array");
+                // if(childJsonNode.GetType() != typeof(JArray))
+                //    throw new Exception($"Property 'children' in object {component.Type} must be an array");
 
                 var childArray = (JArray)childJsonNode;
 

@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Farmhand.UI.Pages;
 using Farmhand.UI.Pages.Parameters;
 using Farmhand.UI.Pages.Properties;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Design;
 using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Farmhand.UI.Pages.Controls
+namespace Farmhand.UI.PageDefinitions.Controls
 {
     public class ClickableTextureParameters : IPageParameters, IPositionable
     {

@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Farmhand.UI.Pages.Parameters;
-using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Farmhand.UI.Pages;
+using Farmhand.UI.Pages.Controls;
 using Microsoft.Xna.Framework.Graphics;
-using Newtonsoft.Json;
 using StardewValley;
 using StardewValley.BellsAndWhistles;
-using StardewValley.Menus;
 
-namespace Farmhand.UI.Pages.Controls
+namespace Farmhand.UI.PageDefinitions.Controls
 {
     public class Label : IPageControl
     {

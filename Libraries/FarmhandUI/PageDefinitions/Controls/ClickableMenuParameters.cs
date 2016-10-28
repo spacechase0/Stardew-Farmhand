@@ -1,6 +1,6 @@
 ﻿using Farmhand.UI.Pages.Parameters;
 
-namespace Farmhand.UI.Pages.Components
+namespace Farmhand.UI.PageDefinitions.Controls
 {
     public class ClickableMenuParameters : IPageParameters
     {

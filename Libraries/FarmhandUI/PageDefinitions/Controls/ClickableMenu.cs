@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Farmhand.UI.Pages;
+using Farmhand.UI.Pages.Components;
 using Farmhand.UI.Pages.Controls;
-using Farmhand.UI.Pages.Parameters;
 using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
 using StardewValley.Menus;
 
-namespace Farmhand.UI.Pages.Components
+namespace Farmhand.UI.PageDefinitions.Controls
 {
     class ClickableMenu : IClickableMenu, IPageComponent
     {
         private List<IPageControl> _children { get; set; } = new List<IPageControl>();
-
-        public string Type => nameof(ClickableMenu);
-
+        
         public IEnumerable<IComponent> Children => _children;
 
         private ClickableMenuParameters Params { get; set; }

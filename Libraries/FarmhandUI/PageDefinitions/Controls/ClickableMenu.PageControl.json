@@ -1,0 +1,6 @@
+﻿{
+  "Name": "ClickableMenu",
+  "CodeBehindTypeName": "Farmhand.UI.PageDefinitions.Controls.ClickableMenu",
+  "CodeBehindParamsTypeName": "Farmhand.UI.PageDefinitions.Controls.ClickableMenuParameters",
+  "DesignerFile": ""
+}

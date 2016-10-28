@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Farmhand.UI.Pages;
 using Farmhand.UI.Pages.Parameters;
 using Farmhand.UI.Pages.Properties;
 using Microsoft.Xna.Framework;
 using Newtonsoft.Json;
 
-namespace Farmhand.UI.Pages.Controls
+namespace Farmhand.UI.PageDefinitions.Controls
 {
     public class LabelParameters : IPageParameters, IPositionable
     {

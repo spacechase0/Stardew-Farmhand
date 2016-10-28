@@ -1,0 +1,5 @@
+﻿{
+  "Name": "ModMenu",
+  "CodeBehindType": "Farmhand.UI.PageDefinitions.Pages.ModMenu",
+  "DesignerFile": "Farmhand.UI.PageDefinitions.Pages.ModMenu.Designer.json"
+}
